@@ -32,10 +32,10 @@ def runCommand(command):
     return check_output(shlex.split(command))
 
 def installPYPIPackages():
-    print runSudoCommand("pip install " + " ".join(pypi_packages))
+    runSudoCommand("pip install " + " ".join(pypi_packages))
 
 def installDistroPackages():
-    print runSudoCommand("yum install " + " ".join(distro_packages))
+    runSudoCommand("yum install " + " ".join(distro_packages))
 
 def createVirtualEnvs():
     print runCommand("source /usr/bin/virtualenvwrapper.sh")
