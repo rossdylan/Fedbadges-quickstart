@@ -6,7 +6,7 @@ except ImportError:
         return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
 import shlex
 import os
-
+import getpass
 
 fedmsg_repo = "https://github.com/rossdylan/fedmsg.git"
 tahrir_repo = "https://github.com/ralphbean/tahrir.git"
@@ -22,15 +22,20 @@ distro_packages = [
         'zeromq',
         'zeromq-devel',
 ]
+def runSudoCommand(command):
+    return runCommand("echo {0} | sudo -S {1}".format(
+    getpass.getpass("Enter password; "),
+    command
+    ))
 
 def runCommand(command):
     return check_output(shlex.split(command))
 
 def installPYPIPackages():
-    print runCommand("pip install " + " ".join(pypi_packages))
+    print runSudoCommand("pip install " + " ".join(pypi_packages))
 
 def installDistroPackages():
-    print runCommand("yum install " + " ".join(distro_packages))
+    print runSudoCommand("yum install " + " ".join(distro_packages))
 
 def createVirtualEnvs():
     print runCommand("source /usr/bin/virtualenvwrapper.sh")
