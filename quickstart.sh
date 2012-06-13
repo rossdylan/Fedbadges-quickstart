@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pip install virtualenv virtualenvwrapper
-sudo yum install mysql-devel zeromq-devel git
+sudo yum install mysql-devel mysql-server zeromq-devel git
 
 source /usr/bin/virtualenvwrapper.sh
 
