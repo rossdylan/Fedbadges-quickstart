@@ -9,4 +9,4 @@ Currently this includes:
 + tahrir develop branch
 + fedmsg fedbadges branch
 
-usage: python quickstart.py
+usage: ./quickstart.sh
