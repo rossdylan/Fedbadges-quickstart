@@ -24,6 +24,6 @@ deactivate
 cd ../
 
 cd tahrir
-workon tharir
+workon tahrir
 python setup.py install
 deactivate
