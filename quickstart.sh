@@ -17,6 +17,7 @@ git clone https://github.com/rossdylan/fedmsg.git
 git clone https://github.com/ralphbean/tahrir.git
 
 cd fedmsg
+git checkout fedbadges
 workon fedmsg
 python setup.py install
 deactivate
@@ -24,6 +25,7 @@ deactivate
 cd ../
 
 cd tahrir
+git checkout develop
 workon tahrir
 python setup.py install
 deactivate
