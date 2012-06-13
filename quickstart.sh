@@ -29,3 +29,12 @@ git checkout develop
 workon tahrir
 python setup.py install
 deactivate
+
+sudo service mysqld start
+
+read -p "Enter mysql username for fedbadges: " username
+read -s -p "Enter password for fedbadges user: " password
+read -p "Enter database name for fedbadges: " dbname
+
+mysql -u root -p -e "grant all privileges on *.* TO '$username'@'localhost' identified by '$password'; create database $dbname"
+
